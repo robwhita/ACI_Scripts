@@ -28,14 +28,15 @@ imdata = all_static_path_objects_dict['imdata']
 
 list_of_static_ports = static_paths.get_all_static_path_t_dn_s(imdata)
 
-print((f'Below is a list of your static paths:\n'))
+print(('Below is a list of your static paths:\n'))
 
 for t_dn in list_of_static_ports:
     print(t_dn)
 
 # User enters in the static path binding
 
-static_path = input('\nPlease enter a static path from above to find out which EPGs they are bound to: ')
+static_path = input('''\nPlease enter a static path from above
+to find out which EPGs they are bound to: ''')
 
 
 # Finds which DNs of EPGs the inputted static path is bound to.
