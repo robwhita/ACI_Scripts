@@ -23,6 +23,17 @@ def get_all_static_path_objects(cookies):
 
     return response
 
+def get_all_static_path_t_dn_s(imdata):
+
+    t_dn_list = []
+    for static_path_object in imdata:
+        t_DN = (static_path_object['fvRsPathAtt']['attributes']['tDn'])
+        if t_DN not in t_dn_list:
+            t_dn = (static_path_object['fvRsPathAtt']['attributes']['tDn'])
+            t_dn_list += [t_dn]
+    return t_dn_list
+
+
 # Finds the DNs of EPGs in which the inputted static path is bound to.
 
 def find_static_path_binding_to_epgs(imdata, static_path):
