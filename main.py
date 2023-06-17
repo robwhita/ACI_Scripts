@@ -35,8 +35,7 @@ for t_dn in list_of_static_ports:
 
 # User enters in the static path binding
 
-static_path = input('''\nPlease enter a static path from above
-to find out which EPGs they are bound to: ''')
+static_path = input('\nPlease enter a static path from above to find out which EPGs it is bound to: ')
 
 
 # Finds which DNs of EPGs the inputted static path is bound to.
