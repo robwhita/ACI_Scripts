@@ -22,7 +22,9 @@ For example, let's say you have a static path for leaf 101 interface 1/1. You th
 
  Used as a module. Authenticates into the APIC and retrieves token.
 
-`static_paths.py` - Used as a module. Includes several functions to work with static path bindings. Enables you to get all static path bindings and their attributes, finds which EPGs the static path binding is bound to.
+`static_paths.py`:
+
+ Used as a module. Includes several functions to work with static path bindings. Enables you to get all static path bindings and their attributes, finds which EPGs the static path binding is bound to.
 
 
 # Disclaimer: Recommended to Run in a Test Environment First
