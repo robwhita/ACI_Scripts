@@ -9,10 +9,12 @@
     * static_paths -   Includes several functions to work with static ports.'''
 
 import json
+import requests
 from colorama import init, Fore
 import get_token
 import static_paths
 
+requests.packages.urllib3.disable_warnings() 
 
 init(autoreset=True)
 

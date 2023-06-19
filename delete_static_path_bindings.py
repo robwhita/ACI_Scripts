@@ -1,6 +1,7 @@
 import requests
 from colorama import init, Fore
 
+requests.packages.urllib3.disable_warnings() 
 
 ''' THe intent of the script is to get a list of all of your static path bindings.
  Once you receive a list of static path bindings
@@ -18,8 +19,6 @@ import static_paths
 from credentials import APIC_HOST
 
 init(autoreset=True)
-
-print(Fore.RED + 'Warning, before deleting the static path bindings, please make sure to fully test this script against a simulator. Also, before deleting static path bindings make sure to backup your APIC\'s configuration.\n')
 
 # Retrieves authentication token
 
@@ -74,15 +73,18 @@ input("Press Enter to continue...\n")
 
 print('*' * 100 + '\n')
 
+print(Fore.RED + 'Disclaimer: Before deleting the static path bindings, please make sure to fully test this script against an ACI test environment. Also, before deleting static path bindings in production make sure to backup your APIC\'s configuration. The author of this script is not responsible for any unexpected behavior after running the script.\n')
+
+
 for dn in dn_list:
-    print(Fore.RED + (dn))
+    print(Fore.YELLOW + (dn))
 
 print('\n')
 
 
 while True:
 
-    delete_static_paths = input('Would you like to delete the static path binding(s) in red above? Enter \'y\' to delete the static path bindings. Enter \'n\' to abort [y/n]: ')
+    delete_static_paths = input('Would you like to delete the static path binding(s) in yellow above? Enter \'y\' to delete the static path bindings. Enter \'n\' to abort [y/n]: ')
     
     if delete_static_paths == 'y':
         for dn in dn_list:
