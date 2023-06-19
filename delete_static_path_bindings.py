@@ -2,8 +2,8 @@
 ''' THe intent of the script is to get a list of all of your static path bindings.
  Once you receive a list of static path bindings
  you can then enter in a specific static path and see which EPGs it is bound to. 
- Once you see what EPGs a static path is bound to, you can then delete all instances out the outputted 
- static path bindings. 
+ Once you see what EPGs a static path is bound to, 
+ you can then delete all instances out the outputted static path bindings. 
 
  This file is intended to be run as a script and import the following modules:
 
@@ -20,9 +20,9 @@ from credentials import APIC_HOST
 
 # Disable SSL warnings.
 
-requests.packages.urllib3.disable_warnings() 
+requests.packages.urllib3.disable_warnings()
 
-# Resets font color back to original state after script was run. 
+# Resets font color back to original state after script was run.
 
 init(autoreset=True)
 
@@ -55,7 +55,8 @@ input("Press Enter to continue...\n")
 
 # User enters in the static path binding
 
-static_path = input(Fore.WHITE + '\nPlease copy and paste a static path from above to find out which EPGs it is bound to: ')
+static_path = input(Fore.WHITE + "\nPlease enter a static path from above \
+to find out which EPGs it is bound to: ")
 
 # Finds which DNs of EPGs the inputted static path is bound to.
 
@@ -80,7 +81,12 @@ input("Press Enter to continue...\n")
 
 print('*' * 100 + '\n')
 
-print(Fore.RED + 'Disclaimer: Before deleting the static path bindings, please make sure to fully test this script against an ACI test environment. Also, before deleting static path bindings in production make sure to backup your APIC\'s configuration. The author of this script is not responsible for any unexpected behavior after running the script.\n')
+print(Fore.RED + 'Disclaimer: Before deleting the static path bindings, \
+please make sure to fully test this script against an ACI test environment. \
+Also, before deleting static path bindings in production make sure to \
+backup your APIC\'s configuration. \
+The author of this script is not responsible \
+for any unexpected behavior after running the script.\n')
 
 # # Finds which DNs of EPGs the inputted static path is bound to and prompts for deletion.
 
@@ -92,21 +98,23 @@ print('\n')
 
 while True:
 
-    delete_static_paths = input('Would you like to delete the static path binding(s) in yellow above? Enter \'y\' to delete the static path bindings. Enter \'n\' to abort [y/n]: ')
-    
+    delete_static_paths = input('Would you like to delete the static path binding(s)\
+in yellow above? \
+Enter \'y\' to delete the static path bindings. \
+Enter \'n\' to abort [y/n]: ')
+
     if delete_static_paths == 'y':
         for dn in dn_list:
             uri = APIC_HOST + 'api/node/mo/' + dn + '.json'
-            print(uri) 
+            print(uri)
             response = requests.delete(uri , verify=False, cookies=token)
             print(response.status_code)
         break
+
     elif delete_static_paths == 'n':
         print('\nGoodbye.\n')
-        break 
+        break
+
     else:
         print('\nPlease enter \'y\' or \'n\'.\n')
         continue
-    
-    
-    

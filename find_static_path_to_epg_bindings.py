@@ -16,9 +16,9 @@ import static_paths
 
 # Disable SSL warnings.
 
-requests.packages.urllib3.disable_warnings() 
+requests.packages.urllib3.disable_warnings()
 
-# Resets font color back to original state after script was run. 
+# Resets font color back to original state after script was run.
 
 init(autoreset=True)
 
@@ -45,9 +45,10 @@ print((Fore.WHITE + '\nBelow is a list of your static paths:\n'))
 for t_dn in list_of_static_ports:
     print(Fore.GREEN + t_dn)
 
-# User enters in the static path 
+# User enters in the static path
 
-static_path = input(Fore.WHITE + '\nPlease enter a static path from above to find out which EPGs it is bound to: ')
+static_path = input(Fore.WHITE + "\nPlease enter a static path from above \
+to find out which EPGs it is bound to: ")
 
 print('\n' + '*' * 100 + '\n')
 
