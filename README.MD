@@ -6,23 +6,23 @@ For example, let's say you have a static path for leaf 101 interface 1/1. You th
 
 # Script Information
 
-find_static_path_to_epg_bindings.py:
+`find_static_path_to_epg_bindings.py`:
 
  This file is intended to be run as a script. When you run the script you will see all static paths, once you view all static paths, you then select one static path and the script will show you which EPGs that static path is bound to.
 
-delete_static_path_bindings.py:
+`delete_static_path_bindings.py`:
 
  Like the find_static_path_to_epg_bindings script, the delete_static_path_bindings script will show you which EPGs a static path is bound to. However, after the static path bindings are displayed, you will then be prompted to delete them. Use the delete_static_path_bindings script with extreme caution. 
 
-credentials.py :
+`credentials.py` :
 
  You must enter in your credentials and the hostname or IP address of your APIC. 
 
-get_token.py:
+`get_token.py`:
 
  Used as a module. Authenticates into the APIC and retrieves token.
 
-static_paths.py - Used as a module. Includes several functions to work with static path bindings. Enables you to get all static path bindings and their attributes, finds which EPGs the static path binding is bound to.
+`static_paths.py` - Used as a module. Includes several functions to work with static path bindings. Enables you to get all static path bindings and their attributes, finds which EPGs the static path binding is bound to.
 
 
 # Disclaimer: Recommended to Run in a Test Environment First
