@@ -30,9 +30,11 @@ You should run this in a test environment first.
 
 For the find_static_path_to_epg_bindings script, you can use the ACI Always-on sandbox to view static ports and their bindings. 
 
-However, the ACI Always-on sandbox is shared amongst multiple people at the same time. Because you shouldn't delete other people's static path bindings, you shouldn't use the ACI Always-on sandbox. When deleteing static path bindings, you can reserve an ACI APIC sandbox. 
+However, the ACI Always-on sandbox is shared amongst multiple people at the same time. Because you shouldn't delete other people's static path bindings, you shouldn't use the ACI Always-on sandbox. When deleting static path bindings, you can reserve an ACI APIC sandbox. 
 
 https://devnetsandbox.cisco.com/RM/Topology 
+
+Before deleting static path bindings in production make sure to backup your APIC's configuration. The author of this script is not responsible for any unexpected behavior after running the script.
 
 # Using the find_static_path_to_epg_bindings.py script
 
