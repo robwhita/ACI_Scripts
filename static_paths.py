@@ -19,18 +19,30 @@ def get_all_static_path_objects(cookies):
 
     uri = APIC_HOST + '/api/node/class/fvRsPathAtt.json'
 
-    response = requests.get(uri , verify=False, cookies=cookies)
+    try:
+
+        response = requests.get(uri , verify=False, cookies=cookies)
+
+    except:
+
+        print('Error getting static paths')
 
     return response
+
 
 def get_all_static_path_t_dn_s(imdata):
     '''Finds list of static paths, removes duplicates.'''
     t_dn_list = []
-    for static_path_object in imdata:
-        t_dn = static_path_object['fvRsPathAtt']['attributes']['tDn']
-        if t_dn not in t_dn_list:
+    try:
+        for static_path_object in imdata:
             t_dn = static_path_object['fvRsPathAtt']['attributes']['tDn']
-            t_dn_list += [t_dn]
+            if t_dn not in t_dn_list:
+                t_dn = static_path_object['fvRsPathAtt']['attributes']['tDn']
+                t_dn_list += [t_dn]
+                
+    except KeyError:
+        pass 
+
     return t_dn_list
 
 
